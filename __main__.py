@@ -20,7 +20,10 @@ ns = k8s.core.v1.Namespace(
     )
 )
 
-image_tag = "nginx:1.25"
+# NOTE: after initial pulumi up and after the replicas field has been patched, swap the below two lines to produce the conflict 
+image_tag = "nginx:1.25.2"
+# image_tag = "nginx:1.25"
+
 app = { "app": "nginx" }
 k8s.apps.v1.Deployment(
     "nginx",
